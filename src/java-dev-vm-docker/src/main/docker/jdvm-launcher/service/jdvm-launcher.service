@@ -1,0 +1,15 @@
+[Unit]
+Description=Yet Another Dialog panel with App buttons
+Wants=network-online.target
+After=network-online.target dbus.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=${image.user}
+WorkingDirectory=/home/${image.user}
+ExecStart=/usr/local/bin/jdvm-launcher
+Restart=always
+RestartSec=3s
+KillMode=process
